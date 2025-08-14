@@ -63,9 +63,12 @@ img {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header-main .container {
+  padding-top: 16px;
+  padding-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 24px;
+  
 }
 
 .logo,
@@ -95,6 +98,7 @@ img {
 .nav-main {
   display: flex;
   align-items: center;
+  gap: 40px;
   width: 100%;
 }
 .nav-list {
@@ -121,16 +125,19 @@ img {
 .nav-link--current {
   color: var(--ocean);
   position: relative;
+
 }
+
 .nav-link--current::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -1px;
+  bottom: -2px;
   height: 4px;
   border-radius: 2px;
   background-color: var(--ocean);
   width: 100%;
+  
 }
 
 /* Desktop contacts hidden on mobile */
@@ -142,12 +149,14 @@ img {
   display: flex;
   gap: 40px;
   list-style: none;
+  align-items: center;
 }
 .address-link {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  white-space: nowrap;
   text-decoration: none;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -158,6 +167,7 @@ img {
 
 /* Burger button */
 .menu-toggle {
+  display: inline-flex;
   margin-left: auto;
   background: transparent;
   border: 0;
@@ -175,6 +185,8 @@ img {
   }
   .header-main .container {
     justify-content: space-between;
+    padding-bottom: 0; 
+    
   }
 }
 
@@ -344,6 +356,46 @@ img {
   line-height: 1.5;
 }
 
+@media (max-width: 767.98px) {
+  .adv-subtitle {
+    font-family: "Raleway", sans-serif; /* если по макету другой шрифт */
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.11;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .adv-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #434455;
+    
+  }
+
+    .logo-footer {
+    display: block;
+    width: max-content;
+    margin: 0 auto 16px;
+    white-space: nowrap;
+  }
+
+  .logo-span-footer {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+
+  .footer-socials-title {
+    text-align: center;
+  }
+}
+
 @media (min-width: 768px) {
   .adv-list {
     flex-direction: row;
@@ -355,9 +407,20 @@ img {
     flex: 0 0 calc((100% - 24px) / 2);
   }
   .adv-icon {
-    display: flex;
+  display: none;  
+  }
+    .adv-subtitle {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.11;
+    margin-bottom: 8px;
+  }
+  .adv-text {
+    font-size: 16px;
+    line-height: 1.5;
   }
 }
+
 @media (min-width: 1158px) {
   .adv-item {
     flex: 0 0 calc((100% - 72px) / 4);
@@ -374,6 +437,11 @@ img {
   gap: 24px;
   list-style: none;
   justify-content: center;
+}
+@media (max-width: 767.98px) {
+  .team-list {
+    row-gap: 72px;
+  }
 }
 .team-item {
   flex-basis: 100%;
@@ -588,7 +656,7 @@ img {
 .subscribe-form {
   display: flex;
   gap: 24px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .subscribe-input {
   width: 100%;
@@ -614,6 +682,7 @@ img {
 }
 .subscribe-btn {
   min-width: 165px;
+  flex: 0 0 auto;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -643,14 +712,66 @@ img {
     flex-direction: row;
     align-items: baseline;
     gap: 72px;
+    
   }
+  
   .footer-logo-wrap {
     margin-right: 120px;
+    grid-column: 1; 
   }
   .footer-subscribe {
     margin-left: auto;
   }
 }
+
+
+/* ===== FOOTER 768–1157 ===== */
+@media (min-width: 768px) and (max-width: 1157.98px) {
+  
+  .footer-container{
+    display: grid;
+    grid-template-columns: 264px auto; 
+    column-gap: 24px;
+    row-gap: 72px;
+    align-items: start;
+    text-align: left;  
+  }
+
+  .footer-logo-wrap{
+    grid-column: 1; 
+    max-width: 264px;
+    margin: 0;
+  }
+
+  .footer-socials-wrap{
+    grid-column: 2;  
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-socials-title{ margin-bottom: 16px; }
+  .footer-social-list{
+    display: flex;
+    gap: 16px;       
+  }
+
+  /* ниже — форма на всю ширину */
+  .footer-subscribe{
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  .subscribe-form{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+  .subscribe-input{ flex: 0 0 264px; max-width: none; min-width: 0; height: 40px; }
+  .subscribe-btn  { flex: 0 0 auto;    min-width: 165px; height: 40px; }
+}
+
 
 /* Visually hidden */
 .visually-hidden {
@@ -967,4 +1088,32 @@ img {
 }
 .mobile-social-link svg {
   fill: var(--cloud);
+}
+
+
+
+/* ===== OUR TEAM — TABLET FIX (768–1157) ===== */
+@media (min-width: 768px) and (max-width: 1157.98px) {
+  .team-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 24px; 
+    row-gap: 72px;    
+  }
+  .team-item {
+    flex: 0 0 264px;
+    width: 264px;
+    height: 428px; 
+    display: flex;
+    flex-direction: column;
+  }
+  .team-img {
+    width: 264px;
+    height: 260px; 
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px 4px 0 0;
+  }
+  .team-info { padding: 32px 16px; flex: 1 0 auto; }
 }

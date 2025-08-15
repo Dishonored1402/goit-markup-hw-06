@@ -184,7 +184,10 @@ img {
   .header-main .container {
     justify-content: space-between;
     padding-bottom: 0; 
-    
+  }
+    .address-list {
+    flex-direction: column;
+    gap: 12px;
   }
 }
 
@@ -652,6 +655,7 @@ img {
 }
 .subscribe-form {
   display: flex;
+  
   gap: 24px;
   flex-wrap: nowrap;
 }
@@ -753,7 +757,6 @@ img {
     gap: 16px;       
   }
 
-  /* ниже — форма на всю ширину */
   .footer-subscribe{
     grid-column: 1 / -1;
     margin: 0;
@@ -1113,4 +1116,16 @@ img {
     border-radius: 4px 4px 0 0;
   }
   .team-info { padding: 32px 16px; flex: 1 0 auto; }
+}
+
+@media (max-width: 767.98px) {
+  .subscribe-form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    flex-wrap: nowrap;
+  }
+  .subscribe-input{ width: 100%; max-width: none; }
+  .subscribe-btn  { width: 100%; }
 }

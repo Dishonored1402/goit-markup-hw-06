@@ -1129,3 +1129,12 @@ img {
   .subscribe-input{ width: 100%; max-width: none; }
   .subscribe-btn  { width: 100%; }
 }
+
+/* Desktop: контакты в одну линию */
+@media (min-width: 1158px) {
+  .address-list {
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+  }
+}
